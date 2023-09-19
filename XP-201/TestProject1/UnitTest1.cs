@@ -13,112 +13,112 @@ namespace TestProject1
         [TestMethod]
         public void TestToString()
         {
-            Dictionary<int, String> testCases = new() 
-            { 
-                { 0, "N" }, 
-                { 1, "I" }, 
-                { 2, "II" }, 
-                { 3, "III" }, 
-                { 4, "IV" }, 
-                { 5, "V" }, 
-                { 6, "VI" }, 
-                { 7, "VII" }, 
-                { 8, "VIII" }, 
-                { 9, "IX" }, 
-                { 10, "X" }, 
-                { 11, "XI" }, 
-                { 12, "XII" }, 
-                { 13, "XIII" }, 
-                { 14, "XIV" }, 
-                { 15, "XV" }, 
-                { 16, "XVI" }, 
-                { 17, "XVII" }, 
-                { 18, "XVIII" }, 
-                { 19, "XIX" }, 
-                { 20, "XX" }, 
-                { 21, "XXI" }, 
-                { 22, "XXII" }, 
-                { 23, "XXIII" }, 
-                { 29, "XXIX" }, 
-                { 30, "XXX" }, 
-                { 33, "XXXIII" }, 
-                { 39, "XXXIX" }, 
+            Dictionary<int, String> testCases = new()
+            {
+                { 0, "N" },
+                { 1, "I" },
+                { 2, "II" },
+                { 3, "III" },
+                { 4, "IV" },
+                { 5, "V" },
+                { 6, "VI" },
+                { 7, "VII" },
+                { 8, "VIII" },
+                { 9, "IX" },
+                { 10, "X" },
+                { 11, "XI" },
+                { 12, "XII" },
+                { 13, "XIII" },
+                { 14, "XIV" },
+                { 15, "XV" },
+                { 16, "XVI" },
+                { 17, "XVII" },
+                { 18, "XVIII" },
+                { 19, "XIX" },
+                { 20, "XX" },
+                { 21, "XXI" },
+                { 22, "XXII" },
+                { 23, "XXIII" },
+                { 29, "XXIX" },
+                { 30, "XXX" },
+                { 33, "XXXIII" },
+                { 39, "XXXIX" },
                 { 40, "XL" },
                 { 44, "XLIV" },
                 { 48, "XLVIII" },
-                { 50, "L" }, 
-                { 51, "LI" }, 
-                { 52, "LII" }, 
-                { 55, "LV" }, 
-                { 59, "LIX" }, 
+                { 50, "L" },
+                { 51, "LI" },
+                { 52, "LII" },
+                { 55, "LV" },
+                { 59, "LIX" },
                 { 62, "LXII" },
                 { 64, "LXIV" },
                 { 66, "LXVI" },
-                { 75, "LXXV" }, 
-                { 77, "LXXVII" }, 
-                { 81, "LXXXI" }, 
-                { 88, "LXXXVIII" }, 
-                { 90, "XC" }, 
-                { 92, "XCII" }, 
-                { 99, "XCIX" }, 
-                { 100, "C" }, 
-                { 105, "CV" }, 
+                { 75, "LXXV" },
+                { 77, "LXXVII" },
+                { 81, "LXXXI" },
+                { 88, "LXXXVIII" },
+                { 90, "XC" },
+                { 92, "XCII" },
+                { 99, "XCIX" },
+                { 100, "C" },
+                { 105, "CV" },
                 { 107, "CVII" },
                 { 111, "CXI" },
                 { 115, "CXV" },
-                { 123, "CXXIII" }, 
-                { 222, "CCXXII" }, 
+                { 123, "CXXIII" },
+                { 222, "CCXXII" },
                 { 234, "CCXXXIV" },
                 { 246, "CCXLVI" },
                 { 321, "CCCXXI" },
-                { 333, "CCCXXXIII" }, 
-                { 345, "CCCXLV" }, 
-                { 378, "CCCLXXVIII" }, 
-                { 404, "CDIV" }, 
+                { 333, "CCCXXXIII" },
+                { 345, "CCCXLV" },
+                { 378, "CCCLXXVIII" },
+                { 404, "CDIV" },
                 { 444, "CDXLIV" },
                 { 456, "CDLVI" },
                 { 500, "D" },
                 { 555, "DLV" },
-                { 567, "DLXVII" }, 
+                { 567, "DLXVII" },
                 { 609, "DCIX" },
                 { 666, "DCLXVI" },
-                { 678, "DCLXXVIII" }, 
-                { 777, "DCCLXXVII" }, 
-                { 789, "DCCLXXXIX" }, 
-                { 888, "DCCCLXXXVIII" }, 
+                { 678, "DCLXXVIII" },
+                { 777, "DCCLXXVII" },
+                { 789, "DCCLXXXIX" },
+                { 888, "DCCCLXXXVIII" },
                 { 890, "DCCCXC" },
-                { 901, "CMI" }, 
-                { 999, "CMXCIX" }, 
-                { 1000, "M" }, 
-                { 1007, "MVII" }, 
-                { 1111, "MCXI" }, 
-                { 1199, "MCXCIX" }, 
-                { 1234, "MCCXXXIV" }, 
-                { 1317, "MCCCXVII" }, 
-                { 1350, "MCCCL" }, 
-                { 1432, "MCDXXXII" }, 
-                { 1500, "MD" }, 
-                { 1575, "MDLXXV" }, 
-                { 1632, "MDCXXXII" }, 
-                { 1667, "MDCLXVII" }, 
-                { 1734, "MDCCXXXIV" }, 
-                { 1872, "MDCCCLXXII" }, 
+                { 901, "CMI" },
+                { 999, "CMXCIX" },
+                { 1000, "M" },
+                { 1007, "MVII" },
+                { 1111, "MCXI" },
+                { 1199, "MCXCIX" },
+                { 1234, "MCCXXXIV" },
+                { 1317, "MCCCXVII" },
+                { 1350, "MCCCL" },
+                { 1432, "MCDXXXII" },
+                { 1500, "MD" },
+                { 1575, "MDLXXV" },
+                { 1632, "MDCXXXII" },
+                { 1667, "MDCLXVII" },
+                { 1734, "MDCCXXXIV" },
+                { 1872, "MDCCCLXXII" },
                 { 1969, "MCMLXIX" },
                 { 1985, "MCMLXXXV" },
-                { 2023, "MMXXIII" }, 
+                { 2023, "MMXXIII" },
                 { 2048, "MMXLVIII" },
-                { 2107, "MMCVII" }, 
-                { 2184, "MMCLXXXIV" }, 
-                { 2222, "MMCCXXII" }, 
-                { 2247, "MMCCXLVII" }, 
-                { 2288, "MMCCLXXXVIII" }, 
-                { 2345, "MMCCCXLV" }, 
-                { 2392, "MMCCCXCII" }, 
-                { 2496, "MMCDXCVI" }, 
-                { 2499, "MMCDXCIX" }, 
-                { 2500, "MMD" }, 
-                { 2678, "MMDCLXXVIII" }, 
-                { 2700, "MMDCC" }, 
+                { 2107, "MMCVII" },
+                { 2184, "MMCLXXXIV" },
+                { 2222, "MMCCXXII" },
+                { 2247, "MMCCXLVII" },
+                { 2288, "MMCCLXXXVIII" },
+                { 2345, "MMCCCXLV" },
+                { 2392, "MMCCCXCII" },
+                { 2496, "MMCDXCVI" },
+                { 2499, "MMCDXCIX" },
+                { 2500, "MMD" },
+                { 2678, "MMDCLXXVIII" },
+                { 2700, "MMDCC" },
                 { 2781, "MMDCCLXXXI" },
                 { 2884, "MMDCCCLXXXIV" },
                 { 2958, "MMCMLVIII" },
@@ -194,7 +194,7 @@ namespace TestProject1
                 {
                     bool isNegative = Convert.ToBoolean(r.Next(0, 2));
                     var tempNumber = number;
-                    number = isNegative? -tempNumber : tempNumber;
+                    number = isNegative ? -tempNumber : tempNumber;
 
                     StringBuilder sb = new();
 
@@ -341,7 +341,7 @@ namespace TestProject1
                 );
             */
 
-            foreach(var pair in parseTests)
+            foreach (var pair in parseTests)
             {
                 Assert.AreEqual(pair.Value, RomanNumber.Parse(pair.Key).Value, $"{pair.Value} == {pair.Key}");
             }
@@ -413,8 +413,8 @@ namespace TestProject1
             RomanNumber r1 = new(10);
             RomanNumber r2 = new(20);
 
-            int[] numbers1         = new int[]    {  10,      12,    34,     32,      42,      11,       1177,      1672,     -45,     -32 };
-            int[] numbers2         = new int[]    {  87,      543,   58,     90,      43,      1111,     390,       1248,     -1,      674 };
+            int[] numbers1 = new int[] { 10, 12, 34, 32, 42, 11, 1177, 1672, -45, -32 };
+            int[] numbers2 = new int[] { 87, 543, 58, 90, 43, 1111, 390, 1248, -1, 674 };
             string[] right_answers = new string[] { "XCVII", "DLV", "XCII", "CXXII", "LXXXV", "MCXXII", "MDLXVII", "MMCMXX", "-XLVI", "DCXLII" };
 
             Assert.IsInstanceOfType(r1.Add(r2), typeof(RomanNumber));
@@ -472,11 +472,11 @@ namespace TestProject1
             Assert.AreEqual(0, RomanNumber.Sum().Value, "Sum(empty) == 0"); // порожній перелік аргументів
 
             Assert.AreEqual(10, RomanNumber.Sum(r1).Value, "Sum(r1) == 10");
-            
+
             Assert.AreEqual(0, RomanNumber.Sum(new(10), new(-10)).Value, "Sum() == 10");
             Assert.AreEqual(-1, RomanNumber.Sum(new(10), new(-11)).Value, "Sum() == -1");
             Assert.AreEqual(1, RomanNumber.Sum(new(10), new(-9)).Value, "Sum() == 1");
-            for(int i = 0; i < 200; i++)
+            for (int i = 0; i < 200; i++)
             {
                 int x = r.Next(-3000, 3000);
                 int y = r.Next(-3000, 3000);
@@ -489,6 +489,81 @@ namespace TestProject1
                 RomanNumber y = new(r.Next(-3000, 3000));
                 Assert.AreEqual(x.Add(y).Value, RomanNumber.Sum(x, y).Value, $"{x} + {y} Add == Sum");
             }
+
+        }
+
+        [TestMethod]
+        public void TestEval()
+        {
+            // pos
+            Assert.IsNotNull(RomanNumber.Eval("IV + XL"));
+            Assert.IsInstanceOfType(RomanNumber.Eval("IV + XL"), typeof(RomanNumber));
+
+            Dictionary<string, int> testCases = new()
+            {
+                { "IV + XL"             , 44   },
+                { "XXIII + LIV"         , 77   },
+                { "MCCXXXIV + CDXLI"    , 1675 },
+                { "CCCXXXII + CCXVII"   , 549  },
+                { "MD + MD"             , 3000 },
+                { "XXXVIII + CCXXVI"    , 264  },
+                { "N + I"               , 1    },
+                { "XXXIII + LXIV"       , 97   },
+                { "CDXCVIII + II"       , 500  },
+                { "XL--II"              , 42   },
+                { "-X - II  "           , -12  },
+                { "-X + II  "           , -8   },
+                { "-X - -II "           , -8   },
+                { "-X + -II "           , -12  },
+                { "-X+-II   "           , -12  },
+                { "-X +-II  "           , -12  },
+                { "  IV  +  XL  "       , 44   },
+                { "IV+XL"               , 44   }
+            };
+
+            foreach (var pair in testCases)
+                Assert.AreEqual(pair.Value, RomanNumber.Eval(pair.Key).Value, $"Test case {pair.Key}");
+
+            for (int i = 0; i < 200; i++)
+            {
+                RomanNumber left = new(r.Next(3000));
+                RomanNumber right = new(r.Next(3000));
+
+                Assert.AreEqual(left.Value + right.Value, 
+                    RomanNumber.Eval($"{left} + {right}").Value,
+                    $"{left} + {right} == {left.Value + right.Value}");
+
+                Assert.AreEqual(left.Add(right).Value,
+                    RomanNumber.Eval($"{left} + {right}").Value,
+                    $"{left} + {right} == {left.Value + right.Value}");
+
+                Assert.AreEqual(RomanNumber.Sum(left, right).Value,
+                    RomanNumber.Eval($"{left} + {right}").Value,
+                    $"{left} + {right} == {left.Value + right.Value}");
+            }
+
+            Assert.AreEqual(new RomanNumber(4).Value, RomanNumber.Eval("IV").Value);
+
+            // neg
+            var ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("IV = XL"); }, "IV = XL -> exception");
+            Assert.IsTrue(ex.Message.Contains("'='", StringComparison.InvariantCultureIgnoreCase), "Test case: IV = XL");
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("IK + XL"); }, "IK + XL -> exception");
+            Assert.IsTrue(ex.Message.Contains("'K'"), "Test case: IK + XL");
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("IV XL +"); }, "IV XL + -> exception");
+            Assert.IsTrue(ex.Message.Contains("Invalid expression", StringComparison.InvariantCultureIgnoreCase), "Test case: IV XL +");
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("="); }, "= -> exception");
+            Assert.IsTrue(ex.Message.Contains("'='", StringComparison.InvariantCultureIgnoreCase), $"Test case: = {ex.Message}");
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval(null!); }, "null! -> exception");
+            Assert.IsTrue(ex.Message.Contains("NULL or empty", StringComparison.InvariantCultureIgnoreCase), "Test case: null!");
+
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("IIC + II"); }, "IIC -> exception");
+            Assert.IsTrue(ex.Message.Contains("IIC"), $"ex.Message {ex.Message}");
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("AX + II"); }, "AX -> exception");
+            Assert.IsTrue(ex.Message.Contains("'A'"), $"ex.Message {ex.Message}");
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("X + X + X"); }, "three arguments -> exception");
+            Assert.IsTrue(ex.Message.Contains("Too many arguments"), "Test case: X + X + X");
+            ex = Assert.ThrowsException<ArgumentException>(() => { RomanNumber.Eval("+X + X"); }, "invalid -> exception");
+            Assert.IsTrue(ex.Message.Contains("Invalid expression"), "Test case: +X + X");
 
         }
     }
@@ -505,4 +580,21 @@ namespace TestProject1
  * які з комбінацій вважати правильними, а які ні
  * 'X C', ' XC', 'XC ', 'XC\t', '\nXC', 'XC\n', 'X\nC'
  *   x      v      v      v        v      v        x
+ */
+
+/* Завдання. Eval
+ * 1. Додавання. Очікувана семантика:
+ *      RomanNumber res = RomanNumber.Eval("IV + XL")
+ * 2. Віднімання
+ * ** Positive
+ * - Складаємо тести
+ *  = NotNull
+ *  = Type
+ *  = Algo (1. З відомими рез-тами, 2. Циклом з випадковими)
+ *  = Cross (1. З Add, з Sum)
+ * ** Negative - p неправильними виразами
+ *  = вимога Exception
+ *  = вимога до повідомлення
+ * - Реалізація з проходження тестів
+ * - Рефакторинг
  */

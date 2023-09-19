@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace App
 {
@@ -7,14 +8,17 @@ namespace App
     {
         private const char ZERO_DIGIT = 'N';
         private const char MINUS_SIGN = '-';
+        private const char PLUS_SIGN = '+';
         private const char DIGIT_QOUTE = '\'';
+        private const string SPACES_REGEX = @"\s+";
         private const string DIGITS_SEPARATOR = ", ";
         private const string INVALID_DIGIT_MESSAGE = "Invalid Roman didgit(s):";
         private const string EMPTY_INPUT_MESSAGE = "NULL or empty input";
         private const string ADD_NULL_MESSAGE = "Cannot Add null object";
         private const string NULL_MESSAGE_PATTERN = "{0}: '{1}'";
         private const string SUM_NULL_MESSAGE = "Invalid Sum() invocation with NULL argument";
-        private const string INVALID_DATA_SUM_MESSAGE = "Invalid Sum() invocation with NULL argument: ";
+        private const string EVAL_INVALID_EXPRESSION_MESSAGE = "Invalid expression";
+        private const string EVAL_TOO_MANY_ARGUMENTS_MESSAGE = "Too many arguments";
         public int Value { get; set; }
         public RomanNumber(int value = 0)
         {
@@ -173,5 +177,127 @@ namespace App
             foreach (RomanNumber number in numbers) sum += number.Value;
             return new RomanNumber(sum);
         }
+
+        public static RomanNumber Eval(string input)
+        {
+            if (string.IsNullOrEmpty(input)) throw new ArgumentException(EMPTY_INPUT_MESSAGE);
+
+            input = Regex.Replace(input, SPACES_REGEX, string.Empty);
+
+            if (input.StartsWith(PLUS_SIGN) || input.EndsWith(PLUS_SIGN)) throw new ArgumentException(EVAL_INVALID_EXPRESSION_MESSAGE);
+
+            if (!input.Contains(PLUS_SIGN) && !input.Contains(MINUS_SIGN)) 
+            {
+                RomanNumber result = new();
+                try
+                {
+                    result = RomanNumber.Parse(input);
+                    return result;
+                }
+                catch(Exception e) 
+                {
+                    throw new ArgumentException(e.Message + MINUS_SIGN);
+                }
+            }
+
+            List<string> expression = new(3) { string.Empty, string.Empty, string.Empty };
+            int index = 0;
+            int operatorCount = 0;
+
+            int i = 0;
+
+            if (input.StartsWith(MINUS_SIGN))
+            {
+                expression[0] = MINUS_SIGN.ToString();
+                i = 1;
+            }
+
+            for (; i < input.Length; i++)
+            {
+                if (input[i] == PLUS_SIGN)
+                {
+                    expression[1] = PLUS_SIGN.ToString();
+                    index = 2;
+                    operatorCount++;
+                    if (operatorCount == 2) throw new ArgumentException(EVAL_TOO_MANY_ARGUMENTS_MESSAGE);
+                    continue;
+                }
+
+                if (input[i] == MINUS_SIGN && index == 0)
+                {
+                    expression[1] = MINUS_SIGN.ToString();
+                    index = 2;
+                    operatorCount++;
+                    if (operatorCount == 2) throw new ArgumentException(EVAL_TOO_MANY_ARGUMENTS_MESSAGE);
+                    continue;
+                }
+
+                try
+                {
+                    if (input[i] != ZERO_DIGIT && input[i] != MINUS_SIGN)
+                    {
+                        DigitValue(input[i]);
+                    }
+                    expression[index] += input[i];
+                }
+                catch (Exception e)
+                {
+                    throw new ArgumentException(e.Message);
+                }
+            }
+
+            RomanNumber left, right;
+            try
+            {
+                left = RomanNumber.Parse(expression[0]);
+                right = RomanNumber.Parse(expression[2]);
+            }
+            catch (Exception ex)
+            {
+                throw new ArgumentException(ex.Message);
+            }
+
+            int res;
+
+            if (expression[1] == PLUS_SIGN.ToString()) res = left.Value + right.Value;
+            else res = left.Value - right.Value;
+
+            return new(res);
+        }
+
+        //public static RomanNumber Eval(string input)
+        //{
+        //    if (string.IsNullOrEmpty(input)) throw new ArgumentException(EMPTY_INPUT_MESSAGE);
+
+        //    if (!input.Contains(PLUS_SIGN)) throw new ArgumentException(EVAL_INPUT_PLUS_MESSAGE);
+            
+        //    input = input.Trim();
+
+        //    if (input.StartsWith(PLUS_SIGN) || input.EndsWith(PLUS_SIGN)) throw new ArgumentException(EVAL_INPUT_PLUS_MESSAGE);
+
+        //    string[] arr = input.Split(PLUS_SIGN);
+        //    //string[] arr = input.Split(SPACE_SEPARATOR);
+
+        //    if (arr.Length != 2) throw new ArgumentException(EVAL_INPUT_NUMBERS_COUNT_MESSAGE);
+
+        //    //arr[0].Trim();
+        //    //arr[1].Trim();
+
+        //    //if (arr.Length != 3) throw new ArgumentException(EVAL_INPUT_NUMBERS_COUNT_MESSAGE);
+        //    //if (arr[1] != PLUS_SIGN.ToString()) throw new ArgumentException(EVAL_INPUT_PLUS_MESSAGE);
+
+        //    RomanNumber left, right;
+        //    try
+        //    {
+        //        left = RomanNumber.Parse(arr[0]);
+        //        right = RomanNumber.Parse(arr[1]);
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        throw new ArgumentException(ex.Message);
+        //    }
+
+        //    return new RomanNumber(left.Value + right.Value);
+        //}
     }
 }
